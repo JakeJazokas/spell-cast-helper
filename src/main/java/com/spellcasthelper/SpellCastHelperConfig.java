@@ -4,16 +4,24 @@ import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("example")
+@ConfigGroup(SpellCastHelperConfig.GROUP_NAME)
 public interface SpellCastHelperConfig extends Config
 {
+	String GROUP_NAME = "spellcasthelper";
+
+	String SPELL_NAME_KEY = "spellName";
+	String CASTS_KEY = "casts";
+
 	@ConfigItem(
-		keyName = "greeting",
-		name = "Welcome Greeting",
-		description = "The message to show to the user when they login"
+			position = 1,
+			keyName = "infobox",
+			name = "Cast InfoBox",
+			description = "Display cast information in an InfoBox"
 	)
-	default String greeting()
+	default boolean showInfobox()
 	{
-		return "Hello";
+		return true;
 	}
+
+
 }
